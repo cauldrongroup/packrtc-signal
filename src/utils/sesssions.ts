@@ -34,11 +34,15 @@ class PackRaySession {
         }
 
         this.createClientSocket()
+        setTimeout(() => {
+            if (this.playerCount <= 0) {
+                this.closeConnection()
+            }
+        }, 50000);
     }
 
     private createClientSocket() {
         this.clientHandlerWSS = new WebSocketServer({ noServer: true });
-        let outThis = this
 
         this.clientHandlerWSS.on('connection', (cws) => {
             this.playerCount++
@@ -73,7 +77,11 @@ class PackRaySession {
             })
 
             cws.once("close", () => {
-                this.closeConnection()
+                this.playerCount--
+
+                if (this.playerCount <= 0) {
+                    this.closeConnection()
+                }
             })
 
             cws.send(JSON.stringify({
