@@ -8,6 +8,7 @@ const idRNG = customAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 4)
 class PackRaySession {
     sessionID = ""
     channelID = ""
+    isDebug: boolean
     connections: { [key: number]: any } = {}
     clientHandlerWSS: WebSocketServer = null
 
@@ -28,7 +29,7 @@ class PackRaySession {
 
     createSocket() {
         this.sessionID = idRNG(4)
-        if (process.env.NODE_ENV !== "production") {
+        if (this.isDebug) {
             this.sessionID = "TEST"
         }
 
@@ -89,8 +90,9 @@ class PackRaySession {
     }
 }
 
-export function createSession(channelID: string) {
+export function createSession(channelID: string, isDebug: boolean = false) {
     const pkS = new PackRaySession()
+    pkS.isDebug = isDebug
     pkS.channelID = channelID
     pkS.createSocket()
     if (!sessions[channelID]) {

@@ -1,7 +1,6 @@
 import express from 'express'
 import { createSession, findSession } from '../utils/sesssions'
 import http from "http";
-import config from "../config"
 
 const router = express.Router()
 const packrayWS = process.env.PACKRTC_WS ?? "ws://127.0.0.1:3000"
@@ -15,7 +14,7 @@ router.post("/host", (req, res) => {
         })
         return
     }
-    const session = createSession(req.body.channel)
+    const session = createSession(req.body.channel, req.body.is_debug)
 
     res.json({
         success: true,
