@@ -59,8 +59,6 @@ function init(server: http.Server) {
             let channelCode = pathSplit[pathSplit.length - 2]
             let roomCode = pathSplit[pathSplit.length - 1]
 
-            console.log("Forwarding WS ", roomCode)
-
             const session = findSession(roomCode, channelCode)
 
             if (session) {
