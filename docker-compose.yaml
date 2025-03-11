@@ -1,0 +1,9 @@
+version: '3'
+services:
+  packrtc:
+    image: 'mawji/packrtc-signal'
+    environment:
+      # Port to run PackRTC on
+      - 'PORT=3000'
+      # Websocket URL for PackRTC (Make sure it doesn't end with slash /)
+      - 'PACKRTC_WS=ws://localhost:3000'
