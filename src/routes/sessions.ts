@@ -58,8 +58,6 @@ function init(server: http.Server) {
             const pathSplit = pathname.split("/")
             let channelCode = pathSplit[pathSplit.length - 2]
             let roomCode = pathSplit[pathSplit.length - 1]
-            let isHost = false
-            let isPRChannel = false
 
             console.log("Forwarding WS ", roomCode)
 
