@@ -21,6 +21,7 @@ class PackRaySession {
     hostPeer: WebSocket
 
     playerCount = 0
+    idCount = 0
     peers: Array<number> = []
 
     constructor() {
@@ -46,7 +47,8 @@ class PackRaySession {
 
         this.clientHandlerWSS.on('connection', (cws) => {
             this.playerCount++
-            const peerID = this.playerCount
+            this.idCount++
+            const peerID = this.idCount
             this.connections[peerID] = cws
 
             cws.on("message", (raw: any) => {
