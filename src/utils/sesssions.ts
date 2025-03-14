@@ -51,6 +51,10 @@ class PackRaySession {
             const peerID = this.idCount
             this.connections[peerID] = cws
 
+            cws.on("close", () => {
+                delete this.connections[peerID]
+            })
+
             cws.on("message", (raw: any) => {
                 const data = JSON.parse(raw)
                 const dataType = data.data_type
