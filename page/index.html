@@ -5,19 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>packray</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-        rel="stylesheet">
-
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #1A3636;
+            background-color: #292929;
             color: white;
-            font-family: "Victor Mono", monospace;
+            font-family: monospace;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,6 +23,7 @@
 
         img {
             margin: 1em;
+            opacity: 0.8;
         }
 
         a {
@@ -41,7 +36,7 @@
         }
 
         .stats {
-            margin-top: 0.5em;
+            margin-top: 0em;
             margin-bottom: 1em;
             opacity: 0.8;
         }
@@ -49,11 +44,8 @@
 </head>
 
 <body>
-    <img src="logo.svg" alt="" height="100" class="logo">
-    <p>Multiplayer Relay Service</p>
+    <img src="logo.svg" alt="" height="80" class="logo">
     <p class="stats"><span hx-get="/stats/session-count" hx-trigger="load every 2s"></span> <span class="at">active now</span></p>
-
-    <a href="https://himaji.xyz">himaji.xyz</a>
 
     <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
 
