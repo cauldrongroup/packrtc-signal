@@ -5,8 +5,9 @@
 
 PackRTC is a P2P multiplayer solution for Godot games, powered by WebRTC. Developers can use PackRTC to provide room based multiplayer games.
 
-## Self hosting Guide
+Check out our [documentation](https://packrtc.himaji.xyz/) for more info!
 
-**WIP** - Coming soon
+Self hosting guide is located [here](https://packrtc.himaji.xyz/docs/signal/self-hosting/).
+
 
 Built with 💖 by maji.
