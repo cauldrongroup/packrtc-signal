@@ -118,6 +118,9 @@ export function createSession(channelID: string, isDebug: boolean = false) {
 }
 
 export function findSession(sessionID: string, channelID: string) {
+    if (!sessions[channelID]) {
+        return
+    }
     if (sessions[channelID][sessionID]) {
         return sessions[channelID][sessionID]
     }
