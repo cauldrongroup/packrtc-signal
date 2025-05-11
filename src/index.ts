@@ -3,6 +3,7 @@ import http from "http";
 import express from 'express'
 import SessionsRoute from './routes/sessions'
 import { countSessions } from './utils/sesssions';
+import cors from 'cors'
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -10,6 +11,7 @@ const port = process.env.PORT || 3000
 const server = http.createServer({}, app)
 
 app.use(express.json())
+app.use(cors())
 
 app.use("/", express.static("./page"))
 
